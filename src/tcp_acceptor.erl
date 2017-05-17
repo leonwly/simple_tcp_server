@@ -129,6 +129,9 @@ handle_call(_Request, _From, State) ->
     {noreply, NewState :: #state{}} |
     {noreply, NewState :: #state{}, timeout() | hibernate} |
     {stop, Reason :: term(), NewState :: #state{}}).
+handle_cast(accept, State) ->
+    accept(State);
+
 handle_cast(_Request, State) ->
     {noreply, State}.
 

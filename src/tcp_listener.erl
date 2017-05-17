@@ -105,8 +105,7 @@ init({Port, AcceptorCount, {M, F, A}=OnStartup, OnShutdown}) ->
             }};
         {error, Reason} ->
             {stop, Reason}
-    end,
-    {ok, #state{}}.
+    end.
 
 %%--------------------------------------------------------------------
 %% @private

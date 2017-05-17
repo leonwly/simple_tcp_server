@@ -45,7 +45,12 @@ boot_listener_sup() ->
     OnStartup = {?MODULE, tcp_listener_started, []},
     OnShutdown = {?MODULE, tcp_listener_stopped, []},
     AcceptCallback = {?MODULE, start_client, []},
-    todo.
+    case tcp_listener_sup:start_link(Port, OnStartup, OnShutdown, AcceptCallback, AcceptorCount) of
+        {ok, Pid} ->
+            {ok, Pid};
+        Error ->
+            {error, Error}
+    end.
 
 tcp_listener_started(IPAddress, Port) ->
     io:format("Tcp listener started ~p: ~p~n", [IPAddress, Port]).

@@ -4,6 +4,10 @@
 
 %% Application callbacks
 -export([start/2, stop/1]).
+-export([start/0]).
+
+start() ->
+    application:start(leonwly_tcp_server).
 
 %% ===================================================================
 %% Application callbacks

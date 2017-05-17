@@ -8,5 +8,9 @@
                   stdlib
                  ]},
   {mod, { leonwly_tcp_server_app, []}},
-  {env, []}
+  {env, [
+      {tcp_listen_port, 9090},
+      {tcp_acceptor_count, 2}
+
+  ]}
  ]}.
